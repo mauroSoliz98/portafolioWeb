@@ -1,14 +1,24 @@
-import {Flex} from 'antd';
+import {Flex, Col, Divider, Row} from 'antd';
 import { PythonOriginal,  
          JavascriptOriginal, 
          PhpOriginal, 
          ReactOriginal, 
          DjangoPlain, 
          LaravelOriginal,  
-         Html5Original, Css3Original   } from 'devicons-react'
+         Html5Original, 
+         Css3Original,
+         FastapiOriginal,
+         MysqlOriginalWordmark,
+         PostgresqlOriginal,
+         MongodbOriginal,
+         TailwindcssOriginal,
+         AntdesignOriginal,
+         BootstrapOriginal,
+         GitOriginal,
+         GitlabOriginal   } from 'devicons-react'
 import { TagsTechs } from '../card/TagsTechs';
 
-export default function Tecnologies() {
+export default function Tecnologies({isMobile}) {
     const datas = [
         {
             title: 'Programing languages',
@@ -28,6 +38,23 @@ export default function Tecnologies() {
             ],
         },
         {
+            title: 'Databases',
+            items: [
+                {
+                    title: 'MySQL',
+                    icon: <MysqlOriginalWordmark/>
+                },
+                {
+                    title: 'PostgreSQL',
+                    icon: <PostgresqlOriginal/>
+                },
+                {
+                    title: 'MongoDB',
+                    icon: <MongodbOriginal/>
+                }
+            ]
+        },
+        {
             title: 'Frameworks',
             items:[
                 {
@@ -41,7 +68,15 @@ export default function Tecnologies() {
                 {
                     title: 'Laravel',
                     icon: <LaravelOriginal/>
-                }
+                },
+                {
+                    title: 'FastAPI',
+                    icon: <FastapiOriginal/>
+                },
+                {
+                    title: 'React Native',
+                    icon: <ReactOriginal/>
+                },
             ]
         },
         {
@@ -54,29 +89,56 @@ export default function Tecnologies() {
                 {
                     title: 'CSS',
                     icon: <Css3Original/>
+                },
+                {
+                    title: 'Tailwind CSS',
+                    icon: <TailwindcssOriginal/>
+                },
+                {
+                    title: 'Ant Design',
+                    icon: <AntdesignOriginal/>
+                },
+                {
+                    title: 'Bootstrap',
+                    icon: <BootstrapOriginal/>
+                },
+            ]
+        },
+        {
+            title: 'Version Control',
+            items:[
+                {
+                    title: 'Git',
+                    icon: <GitOriginal/>
+                },
+                {
+                    title: 'GitLab',
+                    icon: <GitlabOriginal/> 
                 }
             ]
         }
     ]
   return (
     <div style={{display:'flex', flexDirection:'column', gap:10}}>
-        <h1>Technologies</h1>
-        <p>I know to use many tecnologies as: </p>
-        <Flex gap={20}>
+        <h1 style={{textAlign:'center'}}>Technologies</h1>
+        <p style={{textAlign:'center'}}>I know to use many tecnologies such as: </p>
+        <Row gutter={[24,10]}>
             {
                 datas.map((data, index) => ( 
-                <div key={index}>
+                <Col key={index} lg={8} md={12} sm={24} xs={24} >
                     <h3>{data.title}</h3>
                     <br />
-                    <Flex gap="4px 0" wrap="wrap">
+                    <Row gutter={[8,8]} wrap="wrap">
                         {
-                            data.items.map(item =>(
-                            <TagsTechs key={item.title} icon={item.icon} title={item.title}/>
+                            data.items.map((item, index) =>(
+                                <Col span={8} key={index}>
+                                    <TagsTechs key={item.title} icon={item.icon} title={item.title}/>
+                                </Col>
                         ))}
-                    </Flex>
-                </div>
+                    </Row>
+                </Col>
             ))}
-        </Flex>
+        </Row>
     </div>
   )
 }
