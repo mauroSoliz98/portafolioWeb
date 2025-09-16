@@ -1,12 +1,11 @@
 import './App.css'
-import React, { useState, useEffect } from 'react'
-import { Title } from './components/title/Title'
-import Aboutme from './components/aboutme/Aboutme'
-import Tecnologies from './components/tecnologies/Tecnologies'
+import { useState, useEffect } from 'react'
+import { Routes, Route, Navigate } from 'react-router';
+import { Home, About, Projects, Contact } from './pages';
+import LayoutDashborad from './components/layouts';
 
 export default function App() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768)
     window.addEventListener('resize', handleResize)
@@ -14,12 +13,15 @@ export default function App() {
   }, [])
 
   return (
-   <div className='container'>
-    <div className='content'>
-      <Title isMobile={isMobile}/>
-      <Aboutme isMobile={isMobile}/>
-      <Tecnologies isMobile={isMobile}/>
-    </div>
-   </div>
+    <Routes>
+      <Route path='/' element={<Navigate to="/my-website" replace/>}/>
+      <Route path='/my-website' element={<LayoutDashborad/>}>
+        <Route index element={<Home/>}/>
+        <Route path='home' element={<Home/>}/>
+        <Route path='about' element={<About/>}/>
+        <Route path='projects' element={<Projects/>}/>
+        <Route path='contact' element={<Contact/>}/>
+      </Route>
+    </Routes>
   )
 }
