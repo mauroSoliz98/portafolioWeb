@@ -1,5 +1,9 @@
 import { Link } from "react-router";
 import { VscVmConnect, VscTerminal, VscDebugConsole  } from "react-icons/vsc";
+import InmersionDev from "../assets/Certificado_Alura_Latam-Inmersion_Dev.jpg"
+import InmersionIA from "../assets/Certificado_Alura-Inmersion_IA.jpg"
+import EnglishForIT1 from "../assets/english-for-it-1.png"
+
 export const navigationLinks = [
          { label: <Link to="/my-website/home">Home</Link>, key: "1" },
          { label: <Link to="/my-website/about">About</Link>, key: "2" },
@@ -114,20 +118,20 @@ export const skillsData = [
 export const certificationsData = [
     {
         name: "Inmersión Dev",
-        date: "septiembre 2024",
+        date: "september 2024",
         parner: "Alura Latam",
-        image: "../assets/Certificado_Alura_Latam-Inmersion_Dev.jpg"
+        image: InmersionDev
     },
     {
         name: "Inmersión IA",
-        date: "septiembre 2025",
+        date: "september 2025",
         parner: "Alura Latam",
-        image: "../assets/Certificado_Alura-Inmersion_IA.jpg"
+        image: InmersionIA
     },
     {
         name: "English for IT 1",
-        date: "julio 2024",
+        date: "july 2024",
         parner: "Cisco Networking Academy",
-        image: "../assets/english-for-it-1.png"
+        image: EnglishForIT1
     }
 ]

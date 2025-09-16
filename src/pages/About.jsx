@@ -1,8 +1,8 @@
 import React from 'react'
 import Retrato from '../assets/auto-retrato.png'
-import { skillsData } from '../consts'
-import { GradianTitle, ProgressBar } from '../components/ui'
-import { Flex, Card, Typography, Progress } from 'antd'
+import { skillsData, certificationsData } from '../consts'
+import { GradianTitle, ProgressBar, CertificationCard } from '../components/ui'
+import { Flex, Typography } from 'antd'
 const { Title, Paragraph } = Typography
 
 const About = () => {
@@ -24,7 +24,7 @@ const About = () => {
             I'm passionate about web development and constantly seek to update and expand my knowledge in this area. Additionally, in my free time, I enjoy watching movies and learning new languages, which helps me broaden my vision, develop creativity, and improve my communication skills.
           </Paragraph>
           <GradianTitle>My Skills</GradianTitle>
-          <Flex  wrap="wrap" gap={16} style={{ width: '100%' }}> {/*Añade un wrap */}
+          <Flex  wrap="wrap" gap={16} style={{ width: '100%' }}>
             { skillsData.map(({ skill, level, color }) => (
               <ProgressBar
               key={skill} 
@@ -38,7 +38,21 @@ const About = () => {
           </Flex>
         </Flex>
       </Flex>
-      <GradianTitle>Certifications</GradianTitle>
+      <Flex vertical align='center' justify='center' style={{ width: '100%', marginTop: 50 }}>
+        <GradianTitle>Certifications</GradianTitle>
+        <Flex wrap="wrap" justify='center' style={{ maxWidth: 1000, marginTop: 20 }}>
+          {
+            certificationsData.map(({ image, name, date, parner }, index) => (
+              <CertificationCard 
+                key={index}
+                image={image}
+                title={name}
+                description = {`${parner} - ${date}`}
+              />
+            ))
+          }
+        </Flex>
+      </Flex>
     </Flex>
   )
 }
