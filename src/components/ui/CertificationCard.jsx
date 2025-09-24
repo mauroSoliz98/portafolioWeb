@@ -5,7 +5,7 @@ const CertificationCard = ({image, title, description}) => {
   return (
     <Card 
       hoverable 
-      style={{ width: 300, margin: '10px', backgroundColor: '#1c1c1c', borderColor: '#333' }}
+      style={{ width: 300, margin: '10px', backgroundColor: '#28282B', borderColor: '#333' }}
       cover={
         <img 
           src={image}
