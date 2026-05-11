@@ -3,7 +3,7 @@ import { projectsData } from '../consts'
 import { TagsTechs } from '../components/ui'
 import { Flex, Typography, Card, Carousel } from 'antd'
 
-const { Title, Text, Paragraph } = Typography
+const { Text, Paragraph } = Typography
 
 const Projects = () => {
   return (
@@ -27,13 +27,13 @@ const Projects = () => {
               </Carousel>
             }
           >
-            <Paragraph style={{ color: '#595959', fontSize: 16, textAlign: 'justify' }}>
+            <Paragraph style={{ color: '#d4d4d4ff', fontSize: 16, textAlign: 'justify' }}>
               {project.description}
             </Paragraph>
             <Text strong style={{ color: '#182567' }}>Technologies:</Text>
             <Flex wrap="wrap" gap={10} style={{ marginTop: 10 }}>
               {project.technologies.map((tech, techIndex) => (
-                <TagsTechs title={tech.title} icon={tech.icon}/>
+                <TagsTechs key={techIndex} title={tech.title} icon={tech.icon}/>
               ))}
             </Flex>
           </Card>
